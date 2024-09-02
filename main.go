@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"net"
+
 	vnc "github.com/amitbet/vnc2video"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
-	"net"
 
 	"os"
 	"os/exec"
@@ -73,6 +74,8 @@ func main() {
 			},
 		},
 	}
+
+	//logrus.SetLevel(logrus.DebugLevel)
 
 	if err := app.Run(os.Args); err != nil {
 		logrus.WithError(err).Fatal("recording failed.")

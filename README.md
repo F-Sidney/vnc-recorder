@@ -47,6 +47,14 @@ you might want to customize the `--ffmpeg` flag to point to an existing
     docker build -t yourbuild .
     docker run -it yourbuild --help
 
+## Build standalone
+    go build -o vnc-recorder
+### Command line usage
+    Use ffmpeg segment parameter to record recent 20 files, and each file contains 300s record.
+
+```bash
+   /home/code/vnc-recorder/vnc-recorder-linux-amd64 --host 127.0.0.1 --port 5900 --password XXXXXX --framerate 5 --crf 10 --outfile /tmp/${pcname}_${current_date}_ >> "/var/log/${pcname}_vnc_${current_date}.log" 2>> "/var/log/${pcname}_vnc_${current_date}.err.log" &
+```   
 
 ## TODO
 

@@ -131,7 +131,13 @@ func (enc *X264ImageCustomEncoder) Init(videoFileName string) {
 		"-g", "250",
 		"-crf", strconv.Itoa(enc.ConstantRateFactor),
 		"-pix_fmt", "yuv420p",
-		videoFileName,
+		"-f","segment",
+		"-segment_time", "300",
+		"-segment_format", "mp4", 
+		"-segment_list", "catfile.ffcat", 
+		"-segment_wrap", "20", 
+		"-reset_timestamps", "1",
+		videoFileName+"%d.mp4",
 	)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
